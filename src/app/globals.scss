@@ -1,0 +1,59 @@
+@use 'fonts';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --main-background: var(--dark-background);
+
+    --dark-background: 0 0 0;
+    --dim-background: 22 33 44;
+  }
+  
+  select {
+    // A reset of styles, including removing the default dropdown arrow
+    appearance: none;
+    // Additional resets for further consistency
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  }
+
+
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+  
+  body {
+    @apply font-NetflixSans-r bg-main-background text-white;
+  }
+}
+
+@layer components {
+  .hover-animation {
+    @apply transition-colors duration-200;
+  }
+
+  .custom-underline {
+    @apply hover-animation underline decoration-transparent outline-none transition [text-decoration-thickness:1px] 
+           hover:decoration-inherit focus-visible:decoration-inherit;
+  }
+
+  .menu-container {
+    @apply z-10 rounded-md bg-main-background outline-none 
+           [box-shadow:#65778633_0px_0px_15px,_#65778626_0px_0px_3px_1px] 
+           dark:[box-shadow:#ffffff33_0px_0px_15px,_#ffffff26_0px_0px_3px_1px];
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px var(--tw-shadow-color);
+  }
+}
