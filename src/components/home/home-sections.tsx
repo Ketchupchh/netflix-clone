@@ -6,11 +6,13 @@ import { InputField } from "../input/input-field";
 import { CustomIcon } from "../ui/custom-icon";
 import { NextImage } from "../ui/next-image";
 import { HomeSection } from "./home-section";
+import { useRouter } from "next/navigation";
 import type { ChangeEvent } from "react";
 
 export function HomeSections() : JSX.Element
 {
 
+    const { push } = useRouter();
     const [inputValue, setInputValue] = useState('');
 
     const handleChange = ({
@@ -175,6 +177,7 @@ export function HomeSections() : JSX.Element
                     />
                     <button
                         className="flex flex-row items-center gap-1 bg-main-accent rounded xs:text-2xl font-NetflixSans-b py-1 px-5 z-10"
+                        onClick={() => push('/home')}
                     >
                         Get Started
                         <CustomIcon className="w-7 h-7" iconName="ChevronRightIcon" />
